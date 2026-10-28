@@ -13,13 +13,24 @@ import { Meta } from "@/once-ui/modules";
 import { hasResume } from "@/app/utils/resume";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  const metadata = await Meta.generate({
     title: home.title,
     description: home.description,
     baseURL: baseURL,
     path: home.path,
     image: home.image,
   });
+
+  return {
+    ...metadata,
+    icons: {
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+      ],
+      shortcut: "/icon.svg",
+      apple: "/icon.svg",
+    },
+  };
 }
 
 interface RootLayoutProps {
@@ -52,6 +63,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
         <script
           dangerouslySetInnerHTML={{
             __html: `document.documentElement.setAttribute('data-theme', 'dark');`,
