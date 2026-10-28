@@ -64,9 +64,6 @@ export function ExperienceSection() {
             </div>
 
             <div className={styles.award}>
-              <span className={styles.awardIcon}>
-                <Icon name="sparkles" size="s" />
-              </span>
               <div>
                 <span className={styles.awardLabel}>Highlight</span>
                 <h4>{experience.highlight.title}</h4>

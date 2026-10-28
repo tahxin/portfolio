@@ -77,7 +77,7 @@ const about = {
   intro: [
     "I started writing code in 2020, mostly out of curiosity about how the websites I used every day were put together. That curiosity turned into a stack: React and Next.js on the front end, Node, Express and MongoDB on the back, and enough Docker and CI to keep deployments boring.",
     "At the same time, I'm in my fourth year of English Language and Literature at Jatiya Kabi Kazi Nazrul Islam University, ranked in the top 6% of my cohort. Studying syntax, semantics and discourse analysis changed how I write software — I care as much about the words on a screen as the components behind them.",
-    "Most of my work sits where those two interests meet: full-stack products for student organisations, NLP and corpus linguistics experiments, and tools that make learning a little less friction-filled. I currently lead technology at Oxygen AHB and serve as Vice President of the JKKNIU Skill Development Club.",
+    "Most of my work sits where those two interests meet: full-stack products for student organisations, NLP and corpus linguistics experiments, and tools that make learning a little less friction-filled. I am the CTO of Oxygen AHB and serve as Vice President of the JKKNIU Skill Development Club.",
   ],
   facts: [
     { label: "Based in", value: "Brahmanbaria, Bangladesh" },
@@ -93,7 +93,7 @@ const about = {
   ],
   currently: [
     "Building the JKKNIU Skill Development Club platform",
-    "Leading technology at Oxygen AHB",
+    "Serving as CTO of Oxygen AHB",
     "Exploring corpus tools for English language teaching",
   ],
   hobbies: ["Coding side projects", "Travelling", "Campus organising"],
@@ -209,28 +209,6 @@ const education = {
         "Research interests spanning NLP, corpus linguistics, digital humanities and AI ethics in education.",
       ],
     },
-    {
-      school: "Birshreshtha Munshi Abdur Rouf Public College",
-      short: "BMARPC",
-      degree: "Higher Secondary Certificate — Science",
-      period: "2020",
-      location: "Dhaka, Bangladesh",
-      grade: "GPA 5.00 / 5.00",
-      current: false,
-      details: [
-        "Science track with a focus on mathematics and physics before moving into humanities at university.",
-      ],
-    },
-    {
-      school: "Bancharampur S.M. Pilot High School",
-      short: "SM Pilot",
-      degree: "Secondary School Certificate — Science",
-      period: "2018",
-      location: "Brahmanbaria, Bangladesh",
-      grade: "GPA 5.00 / 5.00",
-      current: false,
-      details: ["Completed secondary education with a perfect GPA."],
-    },
   ],
 };
 
@@ -316,7 +294,7 @@ const experience = {
 const projects = {
   label: "Projects",
   eyebrow: "05 — selected work",
-  heading: "Things I've shipped.",
+  heading: "Projects I've shipped.",
   description:
     "Three products built for real users: two for student communities, one for a local marketplace.",
   cta: "See all projects",

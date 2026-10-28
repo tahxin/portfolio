@@ -11,7 +11,7 @@ export function EducationSection() {
           eyebrow={education.eyebrow}
           heading={education.heading}
           description={education.description}
-          meta="3 institutions"
+          meta={`${education.entries.length} institution${education.entries.length === 1 ? "" : "s"}`}
         />
 
         <div className={styles.timeline}>

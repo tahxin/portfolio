@@ -84,14 +84,6 @@ export function Hero({ resumeAvailable = false }: HeroProps) {
               </div>
             </div>
 
-            <div className={styles.timeCard}>
-              <Icon name="terminal" size="xs" />
-              <div>
-                <span className={styles.cardLabel}>Currently</span>
-                <span className={styles.cardValue}>CTO @ Oxygen AHB</span>
-              </div>
-            </div>
-
             <div className={styles.stackCard}>
               <span className={styles.cardLabel}>Core stack</span>
               <span className={styles.stackValue}>Next.js · TypeScript · Node</span>
