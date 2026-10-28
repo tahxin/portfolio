@@ -153,6 +153,12 @@
   white-space: nowrap;
   transition: var(--transition-micro-medium);
 
+  svg {
+    color: var(--btn-fg);
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+
   &:hover {
     color: var(--btn-fg);
     background: var(--btn-bg-hover);
@@ -309,13 +315,19 @@
     display: none;
   }
 
-  .resume span {
+  .resumeText {
     display: none;
   }
 
   .resume {
     width: 36px;
+    height: 36px;
     padding: 0;
     justify-content: center;
+    flex-shrink: 0;
+
+    svg {
+      display: block;
+    }
   }
 }

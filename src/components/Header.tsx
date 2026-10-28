@@ -148,9 +148,11 @@ export const Header = ({ resumeAvailable = false }: HeaderProps) => {
             href={resumeHrefFinal}
             {...(resumeAvailable ? { download: "Shahjalal-Ahmed-Nishat-Resume.pdf" } : {})}
             className={styles.resume}
+            aria-label="Download resume"
+            title="Download resume"
           >
             <Icon name="download" size="xs" />
-            <span>Download resume</span>
+            <span className={styles.resumeText}>Download resume</span>
           </a>
 
           <button
