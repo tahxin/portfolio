@@ -21,7 +21,6 @@ export const Footer = () => {
         <div className={styles.top}>
           <div className={styles.intro}>
             <Link href="/" className={styles.brand}>
-              <span className={styles.monogram}>{person.initials}</span>
               <span>{person.name}</span>
             </Link>
             <p className={styles.tagline}>{footerContent.tagline}</p>
