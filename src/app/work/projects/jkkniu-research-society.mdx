@@ -1,0 +1,59 @@
+---
+title: "JKKNIU Research Society"
+publishedAt: "2025-11-15"
+summary: "Official website for a university research society — publications, academic events and membership, with a React front end and a Django API behind it."
+image: "/images/projects/jkkniu-research-society/cover.jpg"
+images:
+  - "/images/projects/jkkniu-research-society/cover.jpg"
+tag: "Client work"
+status: "Live"
+tech:
+  - React
+  - Vite
+  - Django
+  - Python
+  - REST API
+role: "Full-stack developer"
+timeline: "2025"
+live: "https://jkkniurs.org"
+repo: "https://github.com/tahxin/JKKNIU-Research-Society"
+order: 2
+---
+
+## Overview
+
+The JKKNIU Research Society is a interdisciplinary research community at Jatiya Kabi Kazi Nazrul Islam University. It publishes research writing, runs seminars and workshops, and connects students with faculty and external researchers. The society had no owned web presence — everything lived in Facebook posts and PDFs.
+
+I built and shipped `jkkniurs.org`: a public site that presents the society's work and gives it a credible front door for collaborations, plus the domain, DNS and deployment setup behind it.
+
+## What I built
+
+- **A research-first landing experience** that leads with the society's mission, current work and calls to participate rather than a generic club homepage.
+- **Publication and event surfaces** so papers, seminars and announcements have a permanent, linkable home.
+- **Membership and contact paths** for students and external collaborators who want to join or propose a partnership.
+- **A split architecture**: a React (Vite) front end served independently from a Django/Python API, which keeps content and business logic out of the client bundle.
+- **Domain and infrastructure setup** — production domain, DNS records, HTTPS and deployment configuration on the live `jkkniurs.org` host.
+
+## Technical notes
+
+The front end is a Vite-built React application: fast local feedback, a static bundle, and no server rendering overhead for a content site that changes on a weekly rather than per-request cadence. The Django API owns structured content and validation, exposing REST endpoints that the React app consumes. Keeping these separate means the society can later swap the front end or add an admin interface without a rewrite.
+
+## Challenges
+
+**Two runtimes, one contract.** Splitting React and Django means the API shape becomes the contract. I kept the serializers explicit and versioned the endpoints early, which made it possible to change the client without breaking the deployed API.
+
+**Shipping on a real domain.** Buying and configuring `jkkniurs.org` — DNS records, HTTPS, environment variables and CORS between the API and the front end — was the part no tutorial prepares you for. Getting a clean production setup was as much of the work as the UI.
+
+**Designing for academic credibility.** Research audiences read differently from students. The visual language is quieter than a typical club site: restrained type, generous whitespace, and content density over decoration.
+
+## What I'd improve next
+
+- Add a searchable publication index with filters by discipline and year.
+- Introduce a lightweight editorial workflow so members can submit and editors can approve posts.
+- Add Open Graph images per publication for better sharing.
+- Move media to a CDN-backed store with responsive image variants.
+
+## Links
+
+- [Live site](https://jkkniurs.org)
+- [Source code](https://github.com/tahxin/JKKNIU-Research-Society)

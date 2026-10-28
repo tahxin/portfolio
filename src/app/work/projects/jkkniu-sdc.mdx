@@ -1,0 +1,59 @@
+---
+title: "JKKNIU Skill Development Club"
+publishedAt: "2026-02-01"
+summary: "The official platform for a 500+ member student club — events, membership applications, partners and a public content hub, built with the Next.js App Router."
+image: "/images/projects/jkkniu-sdc/cover.jpg"
+images:
+  - "/images/projects/jkkniu-sdc/cover.jpg"
+tag: "Client work"
+status: "In development"
+tech:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - App Router
+role: "Full-stack developer"
+timeline: "2025 — Present"
+live: "https://jkkniu-sdc.vercel.app"
+repo: "https://github.com/tahxin/jkkniu-sdc"
+order: 1
+---
+
+## Overview
+
+JKKNIU-SDC is the Jatiya Kabi Kazi Nazrul Islam University Skill Development Club — a student organisation founded in 2018 with more than 500 active members and over 100 hosted events. The club needed a single public home for its programmes, committee, partners and membership pipeline instead of scattering updates across social posts and drive links.
+
+I designed and built the site as a single, fast Next.js application: a marketing surface for the club and a lightweight operations front end for the people running it.
+
+## What I built
+
+- **A structured public hub** covering About, Committee, Events, Partners, Membership, Gallery, Blog and Contact, so each programme has a stable URL to share.
+- **Event listings** with past and upcoming states, dates and categories, driven by typed content rather than hard-coded pages.
+- **A membership application flow** with a clear "Apply" path from the hero and navigation, plus a sign-in entry point for returning members.
+- **A partner section** that gives sponsors and corporate collaborators visible placement, which matters when the club is negotiating MoUs.
+- **A responsive layout system** built with Tailwind, with consistent spacing and type scales across mobile, tablet and desktop.
+
+## Technical notes
+
+The App Router keeps most of the site server-rendered while interactive pieces — navigation state, carousels and forms — stay small client components. TypeScript is used end to end so content shapes and component props fail at build time rather than in production. The site deploys to Vercel and is still under active development; the live URL currently serves as a public preview while content and membership flows are being finalised.
+
+## Challenges
+
+**Content velocity versus structure.** A student club changes events, committee members and partners every semester. Modelling the content as data — instead of one-off pages — took longer up front but means the team can add an event without touching layout code.
+
+**Designing for many audiences at once.** Prospective members, current executives, sponsors and alumni all land on the same page with different questions. The navigation and hero were restructured several times before the hierarchy settled on "what the club does" → "proof" → "join".
+
+**Keeping the bundle honest.** With gallery, blog and event views in one application it is easy to pull heavy client components into the initial bundle. I kept media and interactive sections behind their own routes or lazy boundaries.
+
+## What I'd improve next
+
+- Move event and committee content into a proper CMS so executives can publish without a deploy.
+- Add an authenticated member dashboard for applications, certificates and event history.
+- Introduce end-to-end tests around the membership flow before launch.
+- Add structured data for events and the organisation so search results carry dates and locations.
+
+## Links
+
+- [Live preview](https://jkkniu-sdc.vercel.app)
+- [Source code](https://github.com/tahxin/jkkniu-sdc)

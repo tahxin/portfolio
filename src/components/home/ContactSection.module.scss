@@ -1,0 +1,199 @@
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: var(--static-space-48);
+  padding: var(--static-space-40);
+  border: 1px solid var(--hairline);
+  border-radius: calc(var(--card-radius) + 4px);
+  background:
+    radial-gradient(
+      120% 140% at 0% 0%,
+      var(--brand-alpha-weak) 0%,
+      transparent 55%
+    ),
+    var(--neutral-alpha-weak);
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(var(--hairline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.18;
+    pointer-events: none;
+    mask-image: radial-gradient(80% 80% at 100% 0%, #000 0%, transparent 70%);
+  }
+}
+
+.copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--static-space-16);
+}
+
+.label {
+  font-family: var(--mono-font);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-on-background-medium);
+}
+
+.email {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--static-space-12);
+  font-size: clamp(1.25rem, 0.9rem + 1.3vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--neutral-on-background-strong) !important;
+
+  svg {
+    margin-top: 0.15em;
+    flex: 0 0 auto;
+  }
+
+  &:hover {
+    color: var(--brand-on-background-medium) !important;
+    text-decoration: none;
+  }
+}
+
+.emailText {
+  display: flex;
+  flex-wrap: wrap;
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+.note {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--neutral-on-background-weak);
+
+  a {
+    color: var(--brand-on-background-medium);
+    white-space: nowrap;
+  }
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--static-space-8);
+  margin-top: var(--static-space-8);
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--neutral-on-background-medium);
+
+  &:hover {
+    color: var(--brand-on-background-medium);
+    border-color: var(--brand-alpha-strong);
+    background: var(--brand-alpha-weak);
+    text-decoration: none;
+  }
+}
+
+.channels {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--static-space-12);
+}
+
+.channel {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--static-space-12);
+  padding: var(--static-space-16);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--page-background) 65%, transparent);
+  color: var(--neutral-on-background-strong);
+  transition: var(--transition-micro-medium);
+
+  &:hover {
+    border-color: var(--brand-alpha-strong);
+    background: var(--brand-alpha-weak);
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  > :last-child {
+    margin-left: auto;
+    color: var(--neutral-on-background-weak);
+  }
+}
+
+.channelIcon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  color: var(--brand-on-background-medium);
+}
+
+.channelBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.channelLabel {
+  font-family: var(--mono-font);
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--neutral-on-background-weak);
+}
+
+.channelValue {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--neutral-on-background-strong);
+  overflow-wrap: break-word;
+}
+
+.channelNote {
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  color: var(--neutral-on-background-weak);
+}
+
+@media (--m) {
+  .panel {
+    grid-template-columns: 1fr;
+    gap: var(--static-space-32);
+    padding: var(--static-space-24);
+  }
+}
+
+@media (--s) {
+  .channels {
+    grid-template-columns: 1fr;
+  }
+}

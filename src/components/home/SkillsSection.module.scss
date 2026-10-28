@@ -1,0 +1,130 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--static-space-16);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-12);
+  padding: var(--static-space-24);
+  border: 1px solid var(--hairline);
+  border-radius: var(--card-radius);
+  background: linear-gradient(
+    160deg,
+    var(--neutral-alpha-weak) 0%,
+    transparent 60%
+  );
+  transition: var(--transition-micro-medium);
+
+  &:hover {
+    border-color: var(--brand-alpha-strong);
+    background: linear-gradient(
+      160deg,
+      var(--brand-alpha-weak) 0%,
+      transparent 65%
+    );
+    transform: translateY(-2px);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--static-space-8);
+}
+
+.index {
+  font-family: var(--mono-font);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  color: var(--brand-on-background-medium);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  color: var(--neutral-on-background-medium);
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--neutral-on-background-strong);
+}
+
+.count {
+  margin-left: auto;
+  font-family: var(--mono-font);
+  font-size: 0.625rem;
+  color: var(--neutral-on-background-weak);
+}
+
+.description {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--neutral-on-background-weak);
+}
+
+.items {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--static-space-8);
+  margin: var(--static-space-4) 0 0;
+  padding: var(--static-space-16) 0 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--hairline);
+  border-radius: 7px;
+  background: var(--page-background);
+  font-size: 0.75rem;
+  line-height: 1;
+  color: var(--neutral-on-background-medium);
+  transition: var(--transition-micro-medium);
+
+  &:hover {
+    color: var(--neutral-on-background-strong);
+    border-color: var(--hairline-strong);
+  }
+}
+
+.logo {
+  width: 14px;
+  height: 14px;
+  color: var(--brand-on-background-medium);
+  opacity: 0.9;
+}
+
+.monogram {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--brand-alpha-weak);
+  font-family: var(--mono-font);
+  font-size: 0.5rem;
+  color: var(--brand-on-background-medium);
+}
+
+@media (--m) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "react",
+    "nextjs",
+    "import",
+    "jsx-a11y",
+    "unicorn",
+    "promise",
+    "node",
+    "oxc"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2024": true
+  },
+  "settings": {
+    "react": {
+      "version": "19.3.1"
+    },
+    "next": {
+      "rootDir": "."
+    },
+    "jsx-a11y": {
+      "components": {
+        "Button": "button",
+        "IconButton": "button",
+        "SmartLink": "a",
+        "ToggleButton": "a"
+      }
+    }
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": "off",
+    "jsx-a11y/control-has-associated-label": "off"
+  },
+  "ignorePatterns": [
+    ".next/**",
+    "out/**",
+    "build/**",
+    "node_modules/**",
+    "public/**",
+    "src/once-ui/**"
+  ]
+}

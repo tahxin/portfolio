@@ -1,0 +1,165 @@
+/* ------------------------------------------------------------------
+   Global primitives shared across the portfolio sections.
+   Everything else lives in component-scoped SCSS modules.
+------------------------------------------------------------------ */
+
+:root {
+  --content-width: 1120px;
+  --nav-height: 76px;
+  --scroll-offset: 104px;
+  --card-radius: 18px;
+  --hairline: var(--neutral-alpha-medium);
+  --hairline-strong: var(--neutral-alpha-strong);
+  --mono-font: var(--font-code), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --code-green: #7ee787;
+  --code-dim: var(--neutral-on-background-weak);
+  --btn-bg: var(--brand-on-background-medium);
+  --btn-fg: #04101a;
+  --btn-bg-hover: var(--brand-on-background-strong);
+}
+
+html {
+  scroll-padding-top: var(--scroll-offset);
+  color-scheme: dark;
+}
+
+[id] {
+  scroll-margin-top: var(--scroll-offset);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* keyboard focus that matches the dark UI */
+:focus-visible {
+  outline: 2px solid var(--brand-on-background-medium);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- shared layout ---------- */
+.site-container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--static-space-24);
+}
+
+@media (max-width: 768px) {
+  .site-container {
+    padding-inline: var(--static-space-16);
+  }
+}
+
+.section {
+  padding-block: var(--static-space-104);
+  border-top: 1px solid var(--hairline);
+  position: relative;
+}
+
+.section:first-of-type {
+  border-top: 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--static-space-64);
+  }
+}
+
+/* ---------- type helpers ---------- */
+.mono {
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-family: var(--mono-font);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-on-background-medium);
+}
+
+.text-dim {
+  color: var(--neutral-on-background-weak);
+}
+
+.text-strong {
+  color: var(--neutral-on-background-strong);
+}
+
+.accent-text {
+  color: var(--brand-on-background-medium);
+}
+
+/* ---------- decorative bits ---------- */
+.hairline {
+  height: 1px;
+  width: 100%;
+  background: var(--hairline);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success-solid-medium);
+  box-shadow: 0 0 0 3px var(--success-alpha-weak);
+}
+
+.gradient-text {
+  background: linear-gradient(
+    92deg,
+    var(--neutral-on-background-strong) 10%,
+    var(--brand-on-background-medium) 55%,
+    var(--accent-on-background-medium) 95%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* subtle bracket corners used on cards */
+.corners {
+  position: relative;
+}
+
+.corners::before,
+.corners::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--brand-alpha-strong);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.corners::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,31 @@
+.page {
+  width: 100%;
+  padding-top: var(--static-space-40);
+  padding-bottom: var(--static-space-64);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-16);
+  max-width: 720px;
+  margin-bottom: var(--static-space-48);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 1.3rem + 2.8vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--neutral-on-background-strong);
+  text-wrap: balance;
+}
+
+.description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--neutral-on-background-weak);
+  text-wrap: pretty;
+}

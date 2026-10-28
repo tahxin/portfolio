@@ -1,0 +1,65 @@
+---
+title: "BazarDor — Daily Commodity Price Tracker"
+publishedAt: "2026-09-20"
+summary: "A Bengali-first tracker for daily essential commodity prices in Bangladesh, with live tickers, division-level breakdowns, sorting and authenticated profiles."
+image: "/images/projects/bazar-dor/cover.jpg"
+images:
+  - "/images/projects/bazar-dor/cover.jpg"
+tag: "Personal project"
+status: "Live"
+tech:
+  - Next.js 16
+  - TypeScript
+  - Tailwind CSS
+  - DaisyUI
+  - HeroUI
+  - Better Auth
+  - MongoDB
+role: "Designer & developer"
+timeline: "2026"
+live: "https://bazar-dor-teal.vercel.app"
+repo: "https://github.com/tahxin/Bazar-Dor"
+order: 3
+---
+
+## Overview
+
+BazarDor (বাজার দর) answers a question every household in Bangladesh asks: what does rice, dal, oil or fish cost today, and is it more expensive than last week? Prices are published in different places, in different formats, and rarely in a way you can compare across divisions.
+
+BazarDor brings daily essential commodity prices into one Bengali-first interface: a live ticker, top risers and fallers, category filtering, and product pages that break prices down by division and market.
+
+## What I built
+
+- **A real-time price ticker** under the header that loops through current prices with percentage movement, pausing on hover.
+- **Trend sections** for the day's biggest risers and fallers, plus a complete commodity catalog.
+- **Category navigation and sorting** across eight groups — rice, lentils, oil, vegetables, fish, meat, eggs and spices — with sort modes for price and percentage change.
+- **Product detail pages** that compute minimum, maximum and average prices, compare today against yesterday, last week and last month, and break results down by division and specific market.
+- **Authentication and profiles** with email/password plus Google and GitHub OAuth, backed by Better Auth and MongoDB sessions.
+- **Skeleton and Suspense boundaries** on every route so data fetching never causes a layout shift.
+
+## Technical notes
+
+The app runs on the Next.js 16 App Router with strict TypeScript. Styling combines Tailwind CSS v4, DaisyUI v5 and HeroUI, with Noto Serif Bengali for Bengali typography. Prices come from a REST API hosted on Cloudflare Workers; the client implements a primary/backup endpoint strategy with automatic fallback so a single API outage does not take the site down. A large part of the logic is normalisation: converting Bengali numerals and currency strings into numbers so sorting and percentage calculations are correct.
+
+## Challenges
+
+**Bengali numerals are not numbers.** Prices arrive as localised strings such as "৭৫ টাকা". Sorting them lexicographically is meaningless. I wrote converters for Bengali and Western digits, stripped units, and validated the result before it reached the UI — then made percentage changes tolerate missing historical data instead of showing `NaN%`.
+
+**A resilient data layer.** A price tracker that silently shows stale numbers is worse than one that shows an error. The dual-endpoint fallback plus typed API responses means failures surface as empty or error states, not as wrong prices.
+
+**Authentication across server and client.** Better Auth runs server-side with a MongoDB adapter, but session state is consumed by client components. Keeping the cookie/session contract clean through the App Router's server/client boundary was the trickiest integration in the project.
+
+**Dense data on a small screen.** Division tables, market breakdowns and trend badges compete for space on mobile. The layout collapses into stacked, scrollable comparisons instead of squeezing a desktop table into 360px.
+
+## What I'd improve next
+
+- Add price alerts so users can be notified when a commodity crosses a threshold.
+- Cache API responses at the edge with revalidation windows, since prices change daily rather than per second.
+- Add charts for the historical series that the API already exposes.
+- Write integration tests around the numeral parser and fallback logic — the two places where a regression would be invisible.
+- Add offline support with a service worker for low-connectivity users.
+
+## Links
+
+- [Live site](https://bazar-dor-teal.vercel.app)
+- [Source code](https://github.com/tahxin/Bazar-Dor)
