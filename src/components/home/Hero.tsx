@@ -33,7 +33,7 @@ export function Hero({ resumeAvailable = false }: HeroProps) {
 
             <div className={styles.actions}>
               <a href="#projects" className={styles.primary}>
-                View selected work
+                Things I&apos;ve shipped
                 <Icon name="arrowRight" size="s" />
               </a>
               <a
