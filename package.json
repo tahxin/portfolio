@@ -11,7 +11,8 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run typecheck"
+    "check": "npm run lint && npm run typecheck",
+    "test": "playwright test"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.9",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^2.1.1",
+    "@playwright/test": "^1.64.1",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

@@ -33,7 +33,10 @@ export const Header = ({ resumeAvailable = false }: HeaderProps) => {
     ? resumeHref
     : `mailto:${person.email}?subject=${encodeURIComponent("Resume request")}`;
 
-  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const closeMenu = useCallback(() => {
+    document.body.style.overflow = "";
+    setMenuOpen(false);
+  }, []);
 
   // Background treatment once the page has scrolled.
   useEffect(() => {
@@ -103,7 +106,10 @@ export const Header = ({ resumeAvailable = false }: HeaderProps) => {
   const activeSection = isHome ? active : null;
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+    <header
+      className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${menuOpen ? styles.headerOpen : ""}`}
+    >
+      <div className={styles.backdrop} aria-hidden="true" />
       <div className={`site-container ${styles.inner}`}>
         <a href={isHome ? "#top" : "/"} className={styles.brand} aria-label={`${person.name} — home`}>
           <span className={styles.brandText}>
